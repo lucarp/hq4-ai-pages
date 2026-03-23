@@ -1,0 +1,18 @@
+title: Clipping.ai
+description: A 1ª Inteligência Artificial para Concursos Públicos do Brasil
+url: "https://clipping.ai"
+baseurl: ""
+lang: pt-BR
+
+permalink: /blog/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<article class="max-w-3xl mx-auto px-8 pt-36 pb-24">
+  <header class="mb-12">
+    <div class="flex items-center gap-3 mb-6">
+      {% if page.category %}<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">{{ page.category }}</span>{% endif %}
+      <span class="text-secondary text-sm">{{ page.date | date: "%d de %B de %Y" }}</span>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-black text-on-surface tracking-tight leading-tight mb-6">{{ page.title }}</h1>
+    {% if page.description %}<p class="text-xl text-secondary leading-relaxed">{{ page.description }}</p>{% endif %}
+  </header>
+  <div class="prose prose-lg max-w-none text-secondary leading-relaxed
+    prose-headings:text-on-surface prose-headings:font-black prose-headings:tracking-tight
+    prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+    prose-strong:text-on-surface">
+    {{ content }}
+  </div>
+  <div class="mt-16 pt-8 border-t border-outline-variant/20 text-center">
+    <p class="text-lg font-bold text-on-surface mb-4">Estude para {{ page.concurso | default: "o seu concurso" }} com IA</p>
+    {% include cta_stripe.html label="Começar agora — R$99/mês" class="inline-block bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all" %}
+  </div>
+</article>

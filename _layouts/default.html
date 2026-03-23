@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% if page.title %}{{ page.title }} | clipping.ai{% else %}clipping.ai | A 1ª IA para Concursos Públicos do Brasil{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"/>
+  {% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}"/>{% endif %}
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  {% seo %}
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#faf9f5",
+            "surface": "#faf9f5",
+            "surface-bright": "#faf9f5",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f4f4ef",
+            "surface-container": "#efeeea",
+            "surface-container-high": "#e9e8e4",
+            "surface-container-highest": "#e3e3de",
+            "surface-variant": "#e3e3de",
+            "surface-dim": "#dbdad6",
+            "on-surface": "#1a1c1a",
+            "on-surface-variant": "#58423b",
+            "primary": "#a83917",
+            "primary-container": "#ff7851",
+            "primary-fixed": "#ffdbd1",
+            "primary-fixed-dim": "#ffb5a0",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#6b1900",
+            "on-primary-fixed": "#3b0900",
+            "secondary": "#5f5e5e",
+            "secondary-container": "#e2dfde",
+            "on-secondary": "#ffffff",
+            "outline": "#8c716a",
+            "outline-variant": "#dfc0b7",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#2f312e",
+            "inverse-on-surface": "#f1f1ec",
+            "surface-tint": "#a83917",
+          },
+          fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Inter"] },
+          borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "2xl": "1.5rem", "3xl": "2rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+    .glass-effect { background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+  {% include nav.html %}
+  {{ content }}
+  {% include footer.html %}
+</body>
+</html>
