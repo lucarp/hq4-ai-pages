@@ -1,0 +1,39 @@
+---
+layout: default
+title: "Todos os Concursos Públicos Abertos — Clipping.ai"
+description: "Lista completa dos concursos públicos com inscrições abertas no Brasil. Estude com IA para qualquer concurso por R$ 99/mês."
+---
+<div class="max-w-5xl mx-auto px-8 pt-36 pb-24">
+  <header class="mb-16 text-center">
+    <span class="text-primary font-bold text-sm tracking-widest uppercase">Editais Abertos</span>
+    <h1 class="text-5xl font-black text-on-surface tracking-tight mt-4 mb-4">Concursos Públicos Abertos 🔥</h1>
+    <p class="text-xl text-secondary">Todos os concursos com inscrições abertas, atualizados diariamente.</p>
+  </header>
+
+  <!-- Lista de LPs geradas automaticamente -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {% assign concurso_pages = site.pages | where_exp: "p", "p.path contains 'concursos/' and p.path != 'concursos/index.html'" | sort: "date" | reverse %}
+    {% if concurso_pages.size > 0 %}
+      {% for page in concurso_pages %}
+      <a href="{{ page.url | relative_url }}" class="group bg-surface-container-lowest rounded-2xl p-6 border border-outline-variant/20 hover:shadow-lg hover:border-primary/30 transition-all">
+        <div class="flex items-start justify-between mb-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-primary">{{ page.tipo | default: 'Concurso' }}</span>
+          <span class="text-xs text-secondary">{{ page.uf }}</span>
+        </div>
+        <h2 class="text-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">{{ page.concurso }}</h2>
+        {% if page.description %}<p class="text-sm text-secondary line-clamp-2">{{ page.description }}</p>{% endif %}
+        <div class="mt-4 text-primary text-sm font-bold">Estudar com IA →</div>
+      </a>
+      {% endfor %}
+    {% else %}
+      <p class="text-secondary col-span-2 text-center py-12">Nenhum concurso cadastrado ainda. Volte em breve!</p>
+    {% endif %}
+  </div>
+
+  <!-- CTA -->
+  <div class="mt-16 text-center bg-surface-container-low rounded-3xl p-12 border border-outline-variant/10">
+    <h2 class="text-3xl font-black text-on-surface mb-4">Prepare-se para qualquer concurso</h2>
+    <p class="text-secondary mb-8">Nossa IA gera questões, edital verticalizado e flashcards para qualquer concurso público do Brasil.</p>
+    <a href="https://pay.clipping.ai/b/5kA32R9LN8LrdnG9AE" class="inline-block bg-primary text-on-primary font-bold px-10 py-4 rounded-full text-lg hover:shadow-xl transition-all">Assinar por R$ 99/mês</a>
+  </div>
+</div>
