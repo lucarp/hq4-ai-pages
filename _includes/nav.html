@@ -1,16 +1,61 @@
 <nav class="fixed top-0 w-full z-50 bg-[#faf9f5]/70 backdrop-blur-xl font-['Inter'] antialiased text-sm tracking-wide border-b border-outline-variant/10">
   <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
     <a href="{{ '/' | relative_url }}" class="text-2xl font-black tracking-tighter text-[#1a1c1a]">clipping.ai</a>
+
+    <!-- Desktop nav -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="#ranking"       class="text-[#a83917] font-semibold border-b-2 border-[#a83917] pb-1">Concursos</a>
+      <a href="{{ '/concursos/' | relative_url }}" class="text-[#a83917] font-semibold border-b-2 border-[#a83917] pb-1">Concursos</a>
       <a href="#como-funciona" class="text-[#5f5e5e] hover:text-[#1a1c1a] transition-colors duration-300">Como Funciona</a>
       <a href="#planos"        class="text-[#5f5e5e] hover:text-[#1a1c1a] transition-colors duration-300">Preços</a>
       <a href="#depoimentos"   class="text-[#5f5e5e] hover:text-[#1a1c1a] transition-colors duration-300">Depoimentos</a>
       <a href="{{ '/blog/' | relative_url }}" class="text-[#5f5e5e] hover:text-[#1a1c1a] transition-colors duration-300">Blog</a>
     </div>
+
     <div class="flex items-center gap-4">
-      <a href="https://copilot.clipping.ai/" class="text-[#5f5e5e] px-4 py-2 hover:bg-[#f4f4ef]/50 rounded-full transition-all">Entrar</a>
+      <a href="https://copilot.clipping.ai/" class="hidden md:inline text-[#5f5e5e] px-4 py-2 hover:bg-[#f4f4ef]/50 rounded-full transition-all">Entrar</a>
       <a href="https://pay.clipping.ai/b/5kA32R9LN8LrdnG9AE" class="bg-gradient-to-r from-[#a83917] to-[#ff7851] text-white px-6 py-2 rounded-full font-semibold shadow-md active:scale-95 transition-transform">Estudar</a>
+      <!-- Hamburguer mobile -->
+      <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+        <span class="block w-6 h-0.5 bg-[#1a1c1a] transition-all" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-[#1a1c1a] transition-all" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-[#1a1c1a] transition-all" id="bar3"></span>
+      </button>
     </div>
   </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#faf9f5] border-t border-outline-variant/10 px-8 py-6 flex flex-col gap-5 text-base">
+    <a href="{{ '/concursos/' | relative_url }}" class="text-[#a83917] font-bold">📋 Todos os Concursos</a>
+    <a href="#como-funciona" class="text-[#1a1c1a] font-medium">Como Funciona</a>
+    <a href="#planos"        class="text-[#1a1c1a] font-medium">Preços</a>
+    <a href="#depoimentos"   class="text-[#1a1c1a] font-medium">Depoimentos</a>
+    <a href="{{ '/blog/' | relative_url }}" class="text-[#1a1c1a] font-medium">Blog</a>
+    <hr class="border-outline-variant/20">
+    <a href="https://copilot.clipping.ai/" class="text-[#5f5e5e]">Entrar</a>
+    <a href="https://pay.clipping.ai/b/5kA32R9LN8LrdnG9AE" class="bg-gradient-to-r from-[#a83917] to-[#ff7851] text-white px-6 py-3 rounded-full font-semibold text-center">Começar a estudar</a>
+  </div>
 </nav>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu   = document.getElementById('mobile-menu');
+  const bar1   = document.getElementById('bar1');
+  const bar2   = document.getElementById('bar2');
+  const bar3   = document.getElementById('bar3');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const open = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', open);
+      // Animação X
+      bar1.style.transform = open ? '' : 'translateY(8px) rotate(45deg)';
+      bar2.style.opacity   = open ? '' : '0';
+      bar3.style.transform = open ? '' : 'translateY(-8px) rotate(-45deg)';
+    });
+    // Fechar ao clicar num link
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      bar1.style.transform = bar3.style.transform = '';
+      bar2.style.opacity = '';
+    }));
+  }
+</script>
