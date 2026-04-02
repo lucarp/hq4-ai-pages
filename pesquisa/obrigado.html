@@ -1,0 +1,53 @@
+---
+layout: default
+title: Obrigado pela resposta
+description: Recebemos sua resposta. Obrigado!
+permalink: /pesquisa/obrigado/
+sitemap: false
+---
+
+<div class="min-h-screen bg-[#faf9f5] flex items-center justify-center px-4 py-16">
+  <div class="w-full max-w-lg text-center">
+
+    <div id="view-oferta" class="hidden">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-[#1a1c1a] rounded-full mb-8">
+        <span class="material-symbols-outlined text-white text-3xl">card_giftcard</span>
+      </div>
+      <h1 class="text-3xl font-bold text-[#1a1c1a] mb-4 font-['Inter']">Que bom que você quer voltar.</h1>
+      <p class="text-[#4a4a47] text-lg leading-relaxed mb-8 font-['Inter']">
+        Como obrigado pela resposta, preparei uma condição especial só pra você — válida pelas próximas <strong class="text-[#1a1c1a]">48 horas</strong>.
+      </p>
+      <div class="bg-white rounded-2xl border border-[#e3e3de] shadow-sm p-8 mb-8">
+        <p class="text-sm text-[#4a4a47] uppercase tracking-widest mb-2 font-['Inter']">Sua oferta exclusiva</p>
+        <p class="text-4xl font-bold text-[#1a1c1a] mb-1 font-['Inter']">50% OFF</p>
+        <p class="text-[#4a4a47] text-base font-['Inter']">no primeiro mês da assinatura</p>
+        <p class="text-xs text-[#a0a09d] mt-3 font-['Inter']">Oferta pessoal · não aparece no site</p>
+      </div>
+      <a href="https://clipping.ai/?oferta=trial-reativacao&utm_source=survey&utm_campaign=trial-research"
+         class="inline-block w-full py-4 bg-[#1a1c1a] text-white rounded-xl font-bold text-lg font-['Inter'] hover:bg-[#2d2f2d] transition-colors mb-4">
+        Quero assinar com 50% OFF
+      </a>
+      <p class="text-xs text-[#a0a09d] font-['Inter']">O Lucas vai receber sua resposta e pode entrar em contato diretamente.</p>
+    </div>
+
+    <div id="view-obrigado" class="hidden">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-[#e3e3de] rounded-full mb-8">
+        <span class="material-symbols-outlined text-[#1a1c1a] text-3xl">favorite</span>
+      </div>
+      <h1 class="text-3xl font-bold text-[#1a1c1a] mb-4 font-['Inter']">Obrigado pela resposta.</h1>
+      <p class="text-[#4a4a47] text-lg leading-relaxed mb-8 font-['Inter']">
+        Sua opinião vai diretamente para o Lucas. É esse tipo de feedback que nos ajuda a construir um produto que realmente vale a assinatura.
+      </p>
+      <a href="https://clipping.ai/" class="inline-block text-sm underline text-[#1a1c1a] font-['Inter']">
+        Voltar ao Clipping.ai
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const oferta = params.get('oferta') === 'true';
+  document.getElementById(oferta ? 'view-oferta' : 'view-obrigado').classList.remove('hidden');
+</script>
