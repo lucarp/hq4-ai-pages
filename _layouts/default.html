@@ -6,6 +6,25 @@
   <title>{% if page.title %}{{ page.title }} | clipping.ai{% else %}clipping.ai | A 1ª IA para Concursos Públicos do Brasil{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"/>
   {% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}"/>{% endif %}
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NP8RVL');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google Analytics (gtag) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-M3SMXTB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GT-M3SMXTB');
+  </script>
+  <!-- End Google Analytics -->
+
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -60,6 +79,12 @@
   </style>
 </head>
 <body class="bg-background text-on-background font-body antialiased">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP8RVL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   {% include nav.html %}
   {{ content }}
   {% include footer.html %}
