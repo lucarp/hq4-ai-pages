@@ -1,0 +1,187 @@
+---
+layout: default
+title: Uma pergunta rápida
+description: Ajude a melhorar o Clipping.ai respondendo uma pergunta.
+permalink: /pesquisa/
+sitemap: false
+---
+
+<div class="min-h-screen bg-[#faf9f5] flex items-center justify-center px-4 py-16">
+  <div class="w-full max-w-lg">
+
+    <!-- Header -->
+    <div class="mb-10 text-center">
+      <div class="inline-flex items-center justify-center w-12 h-12 bg-[#1a1c1a] rounded-full mb-6">
+        <span class="material-symbols-outlined text-white text-xl">forum</span>
+      </div>
+      <h1 class="text-2xl font-semibold text-[#1a1c1a] mb-3 font-['Inter']" id="survey-title">
+        Uma pergunta rápida
+      </h1>
+      <p class="text-[#4a4a47] text-base leading-relaxed font-['Inter']" id="survey-subtitle">
+        Sua resposta vai diretamente para o Lucas, fundador do Clipping.ai.
+      </p>
+    </div>
+
+    <!-- Card -->
+    <div class="bg-white rounded-2xl shadow-sm border border-[#e3e3de] p-8">
+
+      <!-- Step 1: opções -->
+      <div id="step-choices">
+        <p class="text-[#1a1c1a] font-medium text-base mb-5 font-['Inter']" id="question-text">
+          Por que você nunca chegou a usar o Clipping.ai?
+        </p>
+
+        <div class="space-y-3" id="choices-list">
+          <!-- preenchido por JS -->
+        </div>
+
+        <!-- Campo aberto (aparece ao escolher "outro") -->
+        <div id="comment-block" class="hidden mt-5">
+          <label class="block text-sm text-[#4a4a47] mb-2 font-['Inter']">Pode detalhar? (opcional)</label>
+          <textarea id="comment-input" rows="3"
+            class="w-full rounded-lg border border-[#e3e3de] bg-[#faf9f5] px-4 py-3 text-sm text-[#1a1c1a] resize-none focus:outline-none focus:ring-2 focus:ring-[#1a1c1a] font-['Inter']"
+            placeholder="O que você quiser contar..."></textarea>
+        </div>
+
+        <button id="btn-submit"
+          class="hidden mt-6 w-full py-3.5 bg-[#1a1c1a] text-white rounded-lg font-semibold text-base font-['Inter'] hover:bg-[#2d2f2d] transition-colors disabled:opacity-40"
+          onclick="submitSurvey()">
+          Enviar resposta
+        </button>
+      </div>
+
+      <!-- Step 2: loading -->
+      <div id="step-loading" class="hidden text-center py-8">
+        <div class="inline-block w-8 h-8 border-2 border-[#1a1c1a] border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p class="text-[#4a4a47] font-['Inter'] text-sm">Enviando...</p>
+      </div>
+
+      <!-- Step 3: erro -->
+      <div id="step-error" class="hidden text-center py-8">
+        <span class="material-symbols-outlined text-4xl text-red-400 mb-3 block">error</span>
+        <p class="text-[#1a1c1a] font-semibold font-['Inter'] mb-2">Algo deu errado</p>
+        <p class="text-[#4a4a47] text-sm font-['Inter']" id="error-msg">Tente novamente em alguns instantes.</p>
+        <button onclick="location.reload()" class="mt-4 text-sm underline text-[#1a1c1a] font-['Inter']">Tentar novamente</button>
+      </div>
+
+    </div>
+
+    <p class="text-center text-xs text-[#a0a09d] mt-6 font-['Inter']">
+      Clipping.ai · <a href="https://clipping.ai" class="underline">clipping.ai</a>
+    </p>
+  </div>
+</div>
+
+<script>
+  const SURVEY_TOKEN = 'kIiwKICAicHJpdmF0ZV9rZX';
+  const API_URL = 'https://api.clipping.ai/internal/survey/trial-response';
+
+  const CHOICES_NUNCA = [
+    { value: 'nao_sabia_como_comecar',     label: 'Não sabia por onde começar' },
+    { value: 'nao_tinha_meu_concurso',     label: 'Meu concurso não estava disponível' },
+    { value: 'muito_caro_para_assinar',    label: 'Achei caro para assinar depois' },
+    { value: 'a_vida_passou_na_frente',    label: 'A vida passou na frente / falta de tempo' },
+    { value: 'quero_voltar_a_usar',        label: '✨ Quero dar uma segunda chance agora' },
+    { value: 'outro',                      label: 'Outro motivo' },
+  ];
+
+  const CHOICES_USOU = [
+    { value: 'o_produto_nao_me_convenceu', label: 'Usei mas o produto não me convenceu' },
+    { value: 'nao_tinha_meu_concurso',     label: 'Meu concurso não estava mais disponível' },
+    { value: 'muito_caro_para_assinar',    label: 'Achei caro para assinar' },
+    { value: 'a_vida_passou_na_frente',    label: 'A vida passou na frente / falta de tempo' },
+    { value: 'quero_voltar_a_usar',        label: '✨ Quero voltar a usar agora' },
+    { value: 'outro',                      label: 'Outro motivo' },
+  ];
+
+  // Ler params da URL
+  const params = new URLSearchParams(window.location.search);
+  const segment = params.get('s') || 'nunca-usou'; // 'nunca-usou' | 'usou-parou'
+  const emailHash = params.get('e') || '';
+  const utmSource = params.get('utm_source') || '';
+  const utmCampaign = params.get('utm_campaign') || '';
+  const utmContent = params.get('utm_content') || '';
+
+  const choices = segment === 'usou-parou' ? CHOICES_USOU : CHOICES_NUNCA;
+  let selectedChoice = null;
+
+  // Ajustar texto por segmento
+  if (segment === 'usou-parou') {
+    document.getElementById('survey-title').textContent = 'O que aconteceu?';
+    document.getElementById('question-text').textContent = 'O que fez você parar de usar o Clipping.ai?';
+  }
+
+  // Renderizar opções
+  const list = document.getElementById('choices-list');
+  choices.forEach(c => {
+    const btn = document.createElement('button');
+    btn.dataset.value = c.value;
+    btn.className = 'w-full text-left px-4 py-3.5 rounded-xl border border-[#e3e3de] text-[#1a1c1a] text-sm font-[\'Inter\'] hover:border-[#1a1c1a] hover:bg-[#f4f4ef] transition-all';
+    btn.textContent = c.label;
+    btn.onclick = () => selectChoice(c.value, btn);
+    list.appendChild(btn);
+  });
+
+  function selectChoice(value, el) {
+    selectedChoice = value;
+    // Reset visual
+    list.querySelectorAll('button').forEach(b => {
+      b.className = 'w-full text-left px-4 py-3.5 rounded-xl border border-[#e3e3de] text-[#1a1c1a] text-sm font-[\'Inter\'] hover:border-[#1a1c1a] hover:bg-[#f4f4ef] transition-all';
+    });
+    el.className = 'w-full text-left px-4 py-3.5 rounded-xl border-2 border-[#1a1c1a] bg-[#f4f4ef] text-[#1a1c1a] text-sm font-semibold font-[\'Inter\'] transition-all';
+
+    // Mostrar campo aberto se "outro"
+    document.getElementById('comment-block').classList.toggle('hidden', value !== 'outro');
+    document.getElementById('btn-submit').classList.remove('hidden');
+  }
+
+  async function submitSurvey() {
+    if (!selectedChoice) return;
+    show('step-loading');
+
+    const body = {
+      email_hash: emailHash,
+      segment: segment,
+      choice: selectedChoice,
+      comment: document.getElementById('comment-input')?.value || '',
+      utm_source: utmSource,
+      utm_campaign: utmCampaign,
+      utm_content: utmContent,
+      responded_at: new Date().toISOString()
+    };
+
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + SURVEY_TOKEN
+        },
+        body: JSON.stringify(body)
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.redirect_to) {
+        window.location.href = data.redirect_to;
+      } else if (res.status === 409) {
+        window.location.href = '/pesquisa/obrigado/?oferta=false&r=dup';
+      } else {
+        showError('Não conseguimos registrar sua resposta. Tente novamente.');
+      }
+    } catch (e) {
+      showError('Erro de conexão. Verifique sua internet e tente novamente.');
+    }
+  }
+
+  function show(id) {
+    ['step-choices','step-loading','step-error'].forEach(s => {
+      document.getElementById(s).classList.toggle('hidden', s !== id);
+    });
+  }
+
+  function showError(msg) {
+    document.getElementById('error-msg').textContent = msg;
+    show('step-error');
+  }
+</script>
