@@ -19,6 +19,22 @@ description: "Acelere sua aprovação com IA treinada nos melhores materiais par
         <a href="https://pay.clipping.ai/b/5kA32R9LN8LrdnG9AE" class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all">GARANTIR 80% OFF</a>
         <a href="#ranking" class="border border-primary/20 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary/5 transition-all text-center">Ver Concursos Abertos</a>
       </div>
+
+      <!-- Email Capture -->
+      <div class="mt-8 max-w-lg">
+        <p class="text-sm text-secondary mb-3">Receba alertas de editais abertos + dicas de estudo:</p>
+        <form id="lead-capture" class="flex gap-2" onsubmit="return submitLead(event)">
+          <input type="email" id="lead-email" placeholder="Seu melhor email" required
+            class="flex-1 px-4 py-3 rounded-full border border-outline-variant/30 bg-surface text-on-surface text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+          <button type="submit" id="lead-btn"
+            class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-3 rounded-full font-bold text-sm hover:shadow-lg transition-all whitespace-nowrap">
+            Quero receber
+          </button>
+        </form>
+        <p id="lead-success" class="hidden text-sm text-green-700 mt-2 font-medium">✓ Pronto! Você vai receber novidades.</p>
+        <p id="lead-error" class="hidden text-sm text-red-600 mt-2">Erro ao salvar. Tente novamente.</p>
+      </div>
+
       <div class="mt-12 flex flex-col sm:flex-row gap-8 py-8 border-t border-outline-variant/20">
         <div>
           <div class="text-2xl font-black text-primary">+11 anos</div>
@@ -359,3 +375,54 @@ description: "Acelere sua aprovação com IA treinada nos melhores materiais par
     </div>
   </div>
 </section>
+
+<script>
+async function submitLead(e) {
+  e.preventDefault();
+  const email = document.getElementById('lead-email').value;
+  const btn = document.getElementById('lead-btn');
+  const success = document.getElementById('lead-success');
+  const error = document.getElementById('lead-error');
+
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  success.classList.add('hidden');
+  error.classList.add('hidden');
+
+  try {
+    // Parse UTM params from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const body = {
+      email: email,
+      name: '',
+      source: 'landing-page',
+      utm_source: urlParams.get('utm_source') || '',
+      utm_campaign: urlParams.get('utm_campaign') || '',
+      utm_content: urlParams.get('utm_content') || '',
+    };
+
+    const res = await fetch('https://api.clipping.ai/leads', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer kIiwKICAicHJpdmF0ZV9rZX',
+        'Origin': window.location.origin,
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (res.ok) {
+      success.classList.remove('hidden');
+      document.getElementById('lead-email').value = '';
+      btn.textContent = '✓ Inscrito!';
+    } else {
+      throw new Error('API error');
+    }
+  } catch (err) {
+    error.classList.remove('hidden');
+    btn.textContent = 'Quero receber';
+  }
+  btn.disabled = false;
+  return false;
+}
+</script>
