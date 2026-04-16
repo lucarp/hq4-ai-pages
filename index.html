@@ -410,7 +410,8 @@ async function submitLead(e) {
       body: JSON.stringify(body),
     });
 
-    if (res.ok) {
+    const data = await res.json();
+    if (res.ok || data.status === 'already_registered') {
       success.classList.remove('hidden');
       document.getElementById('lead-email').value = '';
       btn.textContent = '✓ Inscrito!';
