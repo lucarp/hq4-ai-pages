@@ -336,6 +336,183 @@ description: "Acelere sua aprovação com IA treinada nos melhores materiais par
   </div>
 </section>
 
+<!-- Questões Infinitas -->
+<section class="py-24 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-8 flex flex-col lg:flex-row gap-16 items-center">
+    <div class="lg:w-1/2 w-full order-2 lg:order-1">
+      <div class="bg-surface-container-lowest p-8 rounded-[2rem] shadow-xl border border-outline-variant/10 space-y-3">
+        {% assign qsteps = "Selecione o concurso e a banca organizadora|Escolha o tópico do edital que deseja praticar|A IA analisa o estilo de questões da banca|Responda questões geradas na hora|Receba feedback imediato com a fundamentação legal|Evolua com dificuldade adaptativa automática" | split: "|" %}
+        {% for step in qsteps %}
+        <div class="flex items-center gap-4 p-3 bg-surface-container-high rounded-xl text-sm font-medium">
+          <span class="w-6 h-6 bg-primary text-on-primary rounded-full flex items-center justify-center text-[10px] shrink-0">{{ forloop.index }}</span>
+          {{ step }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="lg:w-1/2 order-1 lg:order-2">
+      <span class="text-primary font-bold text-sm tracking-widest uppercase">QUESTÕES INFINITAS</span>
+      <h2 class="text-4xl font-black text-on-surface mt-4 mb-6 leading-tight">Nunca fique sem questões para praticar</h2>
+      <p class="text-lg text-secondary mb-8">Nossa IA gera questões inéditas no estilo exato da banca do seu concurso — baseadas no conteúdo do edital que você está estudando naquele momento. Sem repetição, sem limite.</p>
+      <div class="space-y-4">
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+            <span class="material-symbols-outlined text-primary text-lg">psychology</span>
+          </div>
+          <div>
+            <span class="font-bold text-on-surface">Adaptada à banca</span>
+            <p class="text-sm text-secondary">Questões geradas no estilo da banca organizadora do seu concurso específico.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+            <span class="material-symbols-outlined text-primary text-lg">bolt</span>
+          </div>
+          <div>
+            <span class="font-bold text-on-surface">Gerada em segundos</span>
+            <p class="text-sm text-secondary">Nenhuma espera. A IA cria a questão na hora, com gabarito e fundamento.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+            <span class="material-symbols-outlined text-primary text-lg">trending_up</span>
+          </div>
+          <div>
+            <span class="font-bold text-on-surface">Dificuldade progressiva</span>
+            <p class="text-sm text-secondary">A plataforma ajusta o nível conforme seu desempenho, garantindo evolução constante.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Especialista em Concursos -->
+<section class="py-24 bg-on-surface text-surface-container-lowest overflow-hidden relative">
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+  <div class="max-w-7xl mx-auto px-8 relative z-10 flex flex-col lg:flex-row gap-16 items-center">
+    <div class="lg:w-1/2">
+      <span class="text-primary-container font-bold text-sm tracking-widest uppercase">ESPECIALISTA EM CONCURSOS</span>
+      <h2 class="text-4xl font-black text-surface mt-4 mb-6 leading-tight">Tire dúvidas com a IA a qualquer hora do dia</h2>
+      <p class="text-lg text-surface/80 mb-8">O Clipping.ai tem uma IA especialista em concursos públicos disponível 24 horas por dia, 7 dias por semana. Ela conhece a legislação, a doutrina e o histórico de provas — e responde no contexto do <em>seu</em> edital.</p>
+      <div class="space-y-4">
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-1">
+            <span class="material-symbols-outlined text-primary-container text-lg">menu_book</span>
+          </div>
+          <div>
+            <span class="font-bold text-surface">Responde com fundamento legal</span>
+            <p class="text-sm text-surface/70">Cada resposta vem com a base normativa e doutrinária correspondente.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-1">
+            <span class="material-symbols-outlined text-primary-container text-lg">manage_search</span>
+          </div>
+          <div>
+            <span class="font-bold text-surface">Contextualizada no seu edital</span>
+            <p class="text-sm text-surface/70">A IA sabe o que cai na sua prova e direciona explicações para o que importa.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-1">
+            <span class="material-symbols-outlined text-primary-container text-lg">schedule</span>
+          </div>
+          <div>
+            <span class="font-bold text-surface">Disponível 24/7</span>
+            <p class="text-sm text-surface/70">Sem horário de atendimento. Estude quando for melhor para você.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lg:w-1/2 w-full">
+      <div class="bg-white/5 border border-white/10 rounded-[2rem] p-6 space-y-4">
+        <div class="flex items-end gap-3">
+          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-white text-sm">person</span>
+          </div>
+          <div class="bg-white/10 rounded-2xl rounded-bl-none p-4 max-w-xs text-sm text-surface/90">
+            "Qual a diferença entre vício de iniciativa e vício de competência em Direito Administrativo?"
+          </div>
+        </div>
+        <div class="flex items-end gap-3 flex-row-reverse">
+          <div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-on-primary-container text-sm">smart_toy</span>
+          </div>
+          <div class="bg-primary/20 rounded-2xl rounded-br-none p-4 max-w-sm text-sm text-surface/90">
+            "Vício de iniciativa ocorre quando a lei é proposta por quem não tem competência para isso (ex: parlamentar propõe projeto de lei de iniciativa privativa do Presidente). Vício de competência, por sua vez, refere-se ao órgão que pratica o ato sem ter atribuição legal para tal. Para o CESPE, essa distinção aparece frequentemente em questões de processo legislativo…"
+          </div>
+        </div>
+        <div class="flex items-end gap-3">
+          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-white text-sm">person</span>
+          </div>
+          <div class="bg-white/10 rounded-2xl rounded-bl-none p-4 max-w-xs text-sm text-surface/90">
+            "Me dá uma questão no estilo CESPE sobre isso?"
+          </div>
+        </div>
+        <div class="text-center pt-2">
+          <span class="text-xs text-surface/40 font-medium">Clipping.ai · Especialista em Concursos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24 bg-surface-container-low" id="faq">
+  <div class="max-w-3xl mx-auto px-8">
+    <div class="text-center mb-16">
+      <span class="text-primary font-bold text-sm tracking-widest uppercase">DÚVIDAS FREQUENTES</span>
+      <h2 class="text-4xl font-black text-on-surface mt-4">Perguntas frequentes</h2>
+    </div>
+    <div class="space-y-4">
+      <details class="bg-surface p-6 rounded-2xl border border-outline-variant/20 group open:border-primary/30">
+        <summary class="font-bold text-on-surface cursor-pointer flex justify-between items-center">
+          A IA realmente cria questões específicas para a minha banca?
+          <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <p class="mt-4 text-secondary leading-relaxed">Sim. Nossa IA foi treinada nos padrões de cada banca organizadora (CESPE, FCC, Vunesp, IBFC e dezenas de outras). Ao selecionar seu concurso, as questões geradas replicam o estilo, o nível de dificuldade e o vocabulário típicos daquela banca — inclusive para bancas menores e regionais.</p>
+      </details>
+      <details class="bg-surface p-6 rounded-2xl border border-outline-variant/20 group open:border-primary/30">
+        <summary class="font-bold text-on-surface cursor-pointer flex justify-between items-center">
+          O Clipping.ai funciona para qualquer concurso, mesmo os municipais?
+          <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <p class="mt-4 text-secondary leading-relaxed">Sim — e essa é uma das nossas principais vantagens. Enquanto grandes plataformas focam apenas nos concursos federais mais disputados, o Clipping.ai atende qualquer edital: prefeituras, câmaras municipais, autarquias estaduais e órgãos que os concorrentes ignoram. Você importa o edital e a IA monta o material.</p>
+      </details>
+      <details class="bg-surface p-6 rounded-2xl border border-outline-variant/20 group open:border-primary/30">
+        <summary class="font-bold text-on-surface cursor-pointer flex justify-between items-center">
+          Como funciona o edital verticalizado?
+          <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <p class="mt-4 text-secondary leading-relaxed">Você importa o PDF do edital e nossa IA mapeia automaticamente todos os tópicos cobrados. Para cada item, a plataforma vincula materiais de estudo, gera questões específicas e cria flashcards — tudo organizado em um plano de estudos personalizado ao seu ritmo e disponibilidade.</p>
+      </details>
+      <details class="bg-surface p-6 rounded-2xl border border-outline-variant/20 group open:border-primary/30">
+        <summary class="font-bold text-on-surface cursor-pointer flex justify-between items-center">
+          Posso importar e exportar flashcards para o Anki?
+          <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <p class="mt-4 text-secondary leading-relaxed">Sim. Os flashcards gerados pelo Clipping.ai são totalmente compatíveis com o Anki. Você pode exportar seus baralhos em formato .apkg e continuar revisando no app preferido, seja no celular ou no computador — com o sistema de repetição espaçada que o Anki oferece.</p>
+      </details>
+      <details class="bg-surface p-6 rounded-2xl border border-outline-variant/20 group open:border-primary/30">
+        <summary class="font-bold text-on-surface cursor-pointer flex justify-between items-center">
+          Qual é a política de cancelamento e garantia?
+          <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <p class="mt-4 text-secondary leading-relaxed">Sem fidelidade. Cancele quando quiser diretamente pelo painel, sem burocracia. Além disso, você tem <strong>7 dias de garantia incondicional</strong>: se não ficar satisfeito por qualquer motivo, devolvemos 100% do valor pago — sem perguntas.</p>
+      </details>
+      <details class="bg-surface p-6 rounded-2xl border border-outline-variant/20 group open:border-primary/30">
+        <summary class="font-bold text-on-surface cursor-pointer flex justify-between items-center">
+          O R$ 99/mês dá acesso a tudo?
+          <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <p class="mt-4 text-secondary leading-relaxed">Sim, é um plano único e ilimitado. Por R$ 99/mês você acessa questões infinitas, edital verticalizado, flashcards automáticos, correção de redação por IA, chatbot especialista 24/7, cronômetro de estudos e upload de materiais próprios — sem limites de uso e sem planos intermediários.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- Pricing -->
 <section class="py-24 bg-surface" id="planos">
   <div class="max-w-5xl mx-auto px-8">
@@ -375,6 +552,55 @@ description: "Acelere sua aprovação com IA treinada nos melhores materiais par
     </div>
   </div>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Clipping.ai",
+  "url": "https://clipping.ai",
+  "description": "A 1ª Inteligência Artificial para Concursos Públicos do Brasil. Questões infinitas geradas por IA, edital verticalizado, flashcards e chatbot especialista 24/7.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {
+    "@type": "Offer",
+    "name": "Plano Ilimitado",
+    "price": "99.00",
+    "priceCurrency": "BRL",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "99.00",
+      "priceCurrency": "BRL",
+      "billingDuration": 1,
+      "billingIncrement": 1,
+      "unitCode": "MON"
+    },
+    "url": "https://pay.clipping.ai/b/5kA32R9LN8LrdnG9AE",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Clipping",
+      "url": "https://clipping.ai"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "30000",
+    "bestRating": "5"
+  },
+  "featureList": [
+    "Questões infinitas geradas por IA",
+    "Edital verticalizado interativo",
+    "Flashcards com exportação Anki",
+    "Chatbot especialista em concursos 24/7",
+    "Correção de redação por IA",
+    "Cronômetro de estudos integrado",
+    "Resumos automáticos"
+  ]
+}
+</script>
 
 <script>
 async function submitLead(e) {
