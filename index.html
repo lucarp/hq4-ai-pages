@@ -10,7 +10,7 @@ description: "Acelere sua aprovação com IA treinada nos melhores materiais par
     <div class="z-10">
       <span class="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-bold tracking-widest uppercase mb-6">Qualquer edital. Qualquer banca.</span>
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-on-surface tracking-tighter leading-[1.1] mb-8">
-        Questões infinitas para o seu concurso, qualquer que seja.
+        <span id="h1-rotating" style="transition:opacity 0.45s ease;">Questões infinitas para o seu concurso, qualquer que seja.</span>
       </h1>
       <p class="text-xl text-secondary max-w-lg mb-10 leading-relaxed">
         Cole o edital e a IA gera questões no estilo da banca, flashcards e plano de estudos. Funciona para prefeituras, câmaras e tribunais que os grandes cursinhos ignoram. R$99/mês.
@@ -697,5 +697,27 @@ async function submitLead(e) {
     tick();
     setInterval(tick, 1000);
   }
+})();
+</script>
+<script>
+(function() {
+  var lines = [
+    'Questões infinitas para o seu concurso, qualquer que seja.',
+    'Cole o edital. A IA monta o plano de estudos.',
+    'Flashcards automáticos gerados após cada sessão.',
+    'Funciona para prefeituras, câmaras e tribunais estaduais.',
+    'Estude no estilo da banca do seu concurso específico.'
+  ];
+  var el = document.getElementById('h1-rotating');
+  if (!el) return;
+  var i = 0;
+  setInterval(function() {
+    el.style.opacity = '0';
+    setTimeout(function() {
+      i = (i + 1) % lines.length;
+      el.textContent = lines[i];
+      el.style.opacity = '1';
+    }, 450);
+  }, 3800);
 })();
 </script>
