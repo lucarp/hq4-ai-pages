@@ -5,7 +5,7 @@ description: "Tudo sobre o concurso ALE - Assembleia Legislativa do Estado de Ro
 category: Concursos
 concurso: "ALE - Assembleia Legislativa do Estado de Roraima"
 uf: "RR"
-date: 2026-04-17
+date: 2026-04-18
 ---
 
 O **concurso ALE - Assembleia Legislativa do Estado de Roraima** está com inscrições abertas até 6 de maio de 2026 e é uma das oportunidades mais aguardadas de 2026 no estado de RR. Neste artigo, você encontra tudo sobre o edital, vagas, cargos e, principalmente, como usar inteligência artificial para acelerar sua preparação.
@@ -26,7 +26,7 @@ Oportunidades contemplam cargos de nível médio e superior. A seleção inclui 
 | **Inscrições** | 06/05/2026 |
 
 
-👉 [Baixar o edital completo em PDF](https://arq.pciconcursos.com.br/ale-rr-publica-editais-de-concursos-com-salarios-de-ate-39589/1697532/4b7df0ed48/edital_n_01_2026_1697532.pdf)
+👉 [Baixar o edital completo em PDF](https://arq.pciconcursos.com.br/ale-rr-publica-editais-de-concursos-com-salarios-de-ate-39589/1697532/71fe4d15cc/edital_n_01_2026_1697532.pdf)
 
 ## Como estudar para este concurso com IA
 

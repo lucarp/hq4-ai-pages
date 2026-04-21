@@ -71,5 +71,5 @@ Isso é o que separa um concurseiro que "estuda muito" de um que "aprova rápido
 <div class="mt-10 p-8 bg-primary text-on-primary rounded-3xl text-center">
   <p class="text-2xl font-black mb-2">Teste por 7 dias, sem risco.</p>
   <p class="opacity-80 mb-6">Se não ajudar sua preparação, devolvemos tudo. Sem perguntas.</p>
-  <a href="https://pay.clipping.ai/b/5kA32R9LN8LrdnG9AE" class="inline-block bg-white text-primary font-black px-8 py-4 rounded-full text-lg">Assinar com 80% OFF →</a>
+  <a href="https://pay.clipping.ai/b/5kA02R9LN8LrdnG9AE" class="inline-block bg-white text-primary font-black px-8 py-4 rounded-full text-lg">Assinar com 80% OFF →</a>
 </div>
