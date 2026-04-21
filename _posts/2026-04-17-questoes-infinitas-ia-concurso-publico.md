@@ -71,5 +71,5 @@ A janela das inscrições da ALE-RR, das câmaras de MG e CE está aberta agora.
 <div class="mt-10 p-8 bg-primary text-on-primary rounded-3xl text-center">
   <p class="text-2xl font-black mb-2">Comece hoje. R$ 99/mês.</p>
   <p class="opacity-80 mb-6">Garantia incondicional de 7 dias. Cancele quando quiser.</p>
-  <a href="https://pay.clipping.ai/b/5kA32R9LN8LrdnG9AE" class="inline-block bg-white text-primary font-black px-8 py-4 rounded-full text-lg">Assinar com 80% OFF →</a>
+  <a href="https://pay.clipping.ai/b/5kA02R9LN8LrdnG9AE" class="inline-block bg-white text-primary font-black px-8 py-4 rounded-full text-lg">Assinar com 80% OFF →</a>
 </div>

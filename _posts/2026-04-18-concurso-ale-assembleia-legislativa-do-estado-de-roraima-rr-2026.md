@@ -54,6 +54,6 @@ Não importa se a banca organizadora é pequena ou se o concurso tem poucos cand
 
 Inscrições abertas até 6 de maio de 2026. Cada dia que passa sem estudar é uma vantagem que você cede para os outros candidatos.
 
-**[→ Começar a estudar por R$ 99/mês](https://pay.clipping.ai/b/5kA32R9LN8LrdnG9AE)**
+**[→ Começar a estudar por R$ 99/mês](https://pay.clipping.ai/b/5kA02R9LN8LrdnG9AE)**
 
 *Garantia incondicional de 7 dias. Cancele quando quiser.*
