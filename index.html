@@ -8,21 +8,21 @@ description: "Acelere sua aprovação com IA treinada nos melhores materiais par
 <header class="relative pt-32 pb-16 overflow-hidden">
   <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-16 items-center">
     <div class="z-10">
-      <span class="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-bold tracking-widest uppercase mb-6">O Futuro dos Estudos</span>
+      <span class="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-bold tracking-widest uppercase mb-6">Qualquer edital. Qualquer banca.</span>
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-on-surface tracking-tighter leading-[1.1] mb-8">
-        A 1ª Inteligência Artificial para Concursos Públicos do Brasil
+        Cole seu edital. Gere questões infinitas. Para qualquer concurso — até os municipais que ninguém cobre.
       </h1>
       <p class="text-xl text-secondary max-w-lg mb-10 leading-relaxed">
-        Acelere seus estudos com uma IA treinada nos melhores materiais para concursos públicos do país.
+        A única IA que funciona para prefeituras, câmaras e tribunais estaduais — não só para os federais grandes. R$99/mês, cancele quando quiser.
       </p>
       <div class="flex flex-wrap gap-4">
-        <a href="https://pay.clipping.ai/b/5kA02R9LN8LrdnG9AE" class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all">GARANTIR 80% OFF</a>
-        <a href="#ranking" class="border border-primary/20 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary/5 transition-all text-center">Ver Concursos Abertos</a>
+        <a href="https://pay.clipping.ai/b/5kA02R9LN8LrdnG9AE" class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all">Começar por R$99/mês →</a>
+        <a href="/concursos/" class="border border-primary/20 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary/5 transition-all text-center">Ver se tem meu concurso</a>
       </div>
 
       <!-- Email Capture -->
       <div class="mt-8 max-w-lg">
-        <p class="text-sm text-secondary mb-3">Receba alertas de editais abertos + dicas de estudo:</p>
+        <p class="text-sm text-secondary mb-3">Qual é o seu concurso? Receba questões e alertas:</p>
         <form id="lead-capture" class="flex gap-2" onsubmit="return submitLead(event)">
           <input type="email" id="lead-email" placeholder="Seu melhor email" required
             class="flex-1 px-4 py-3 rounded-full border border-outline-variant/30 bg-surface text-on-surface text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
@@ -300,6 +300,12 @@ description: "Acelere sua aprovação com IA treinada nos melhores materiais par
 <!-- Depoimentos -->
 <section class="py-24 bg-surface-container-lowest" id="depoimentos">
   <div class="max-w-7xl mx-auto px-8">
+    <div class="flex items-center justify-center gap-3 mb-6 flex-wrap">
+      <span class="text-yellow-500 text-xl font-bold leading-none">★★★★★</span>
+      <span class="font-bold text-on-surface">4.8/5</span>
+      <span class="text-secondary">·</span>
+      <span class="text-secondary text-sm">+30.000 alunos já estudaram pela plataforma</span>
+    </div>
     <h2 class="text-center text-4xl font-black text-on-surface mb-16">O que dizem nossos alunos</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="p-8 rounded-3xl bg-background border border-outline-variant/20 shadow-sm">
@@ -517,7 +523,24 @@ description: "Acelere sua aprovação com IA treinada nos melhores materiais par
 <section class="py-24 bg-surface" id="planos">
   <div class="max-w-5xl mx-auto px-8">
     <div class="text-center mb-16">
-      <span class="inline-block px-4 py-1 rounded-full bg-error-container text-on-error-container font-black text-sm mb-4">OFERTA ESPECIAL: 80% OFF</span>
+      <span id="urgency-default-badge" class="inline-block px-4 py-1 rounded-full bg-error-container text-on-error-container font-black text-sm mb-4">OFERTA ESPECIAL: 80% OFF</span>
+      <div id="urgency-timer" class="hidden items-center justify-center gap-3 mb-4 flex-wrap">
+        <span class="text-sm font-bold text-red-700 uppercase tracking-wider">⏰ Oferta expira em:</span>
+        <div class="flex gap-2">
+          <div class="bg-red-50 border border-red-200 rounded-lg px-3 py-2 text-center min-w-[52px]">
+            <div id="timer-h" class="text-2xl font-black text-red-700 tabular-nums">00</div>
+            <div class="text-xs text-red-500 uppercase">h</div>
+          </div>
+          <div class="bg-red-50 border border-red-200 rounded-lg px-3 py-2 text-center min-w-[52px]">
+            <div id="timer-m" class="text-2xl font-black text-red-700 tabular-nums">00</div>
+            <div class="text-xs text-red-500 uppercase">min</div>
+          </div>
+          <div class="bg-red-50 border border-red-200 rounded-lg px-3 py-2 text-center min-w-[52px]">
+            <div id="timer-s" class="text-2xl font-black text-red-700 tabular-nums">00</div>
+            <div class="text-xs text-red-500 uppercase">seg</div>
+          </div>
+        </div>
+      </div>
       <h2 class="text-4xl md:text-5xl font-black text-on-surface">Comece a sua aprovação hoje</h2>
     </div>
     <div class="bg-surface-container-lowest border-2 border-primary rounded-[3rem] p-10 md:p-16 relative overflow-hidden shadow-2xl">
@@ -651,4 +674,28 @@ async function submitLead(e) {
   btn.disabled = false;
   return false;
 }
+</script>
+<script>
+(function() {
+  var offerDays = [1, 3, 5];
+  var isOffer = offerDays.indexOf(new Date().getDay()) !== -1;
+  var timer = document.getElementById('urgency-timer');
+  var badge = document.getElementById('urgency-default-badge');
+  if (!timer) return;
+  if (isOffer) {
+    timer.classList.remove('hidden');
+    timer.style.display = 'flex';
+    if (badge) badge.classList.add('hidden');
+    function tick() {
+      var now = new Date();
+      var end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+      var d = Math.max(0, end - now);
+      document.getElementById('timer-h').textContent = String(Math.floor(d / 3600000)).padStart(2, '0');
+      document.getElementById('timer-m').textContent = String(Math.floor(d % 3600000 / 60000)).padStart(2, '0');
+      document.getElementById('timer-s').textContent = String(Math.floor(d % 60000 / 1000)).padStart(2, '0');
+    }
+    tick();
+    setInterval(tick, 1000);
+  }
+})();
 </script>
